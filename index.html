@@ -6,18 +6,18 @@
     <title>Prithviraj Keswani's Resume</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMt23cez/3paNdF+Z9FrM2i3qZ1OXFjTI9U5oy9" crossorigin="anonymous">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Fira Code', monospace;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #1e1e1e;
+            color: #dcdcdc;
         }
         .container {
             width: 80%;
             margin: 0 auto;
             padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         header {
             text-align: center;
@@ -26,13 +26,14 @@
         header h1 {
             margin: 0;
             font-size: 2.5em;
+            color: #569cd6;
         }
         .contact-info {
             text-align: center;
             margin-bottom: 20px;
         }
         .contact-info a {
-            color: #333;
+            color: #dcdcdc;
             text-decoration: none;
             margin: 0 10px;
         }
@@ -42,6 +43,7 @@
         section h2 {
             border-bottom: 2px solid #333;
             padding-bottom: 5px;
+            color: #9cdcfe;
         }
         ul {
             list-style-type: none;
@@ -63,18 +65,43 @@
             height: 100px;
             object-fit: cover;
             border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .hobbies img:hover {
+            transform: scale(1.1);
+        }
+        a {
+            color: #569cd6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #9cdcfe;
+        }
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        code {
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            padding: 2px 4px;
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container fade-in">
         <header>
             <h1>Prithviraj Keswani</h1>
             <div class="contact-info">
-                <a href="tel:+16473829911"><i class="fa fa-phone"></i>647-382-9911</a>
-                <a href="mailto:prithvirajkeswani@gmail.com"><i class="fa fa-envelope"></i>prithvirajkeswani@gmail.com</a>
-                <a href="https://github.com/6pro"><i class="fab fa-github"></i>github.com/6pro</a>
-                <a href="https://linkedin.com/in/prithvirajkeswani/"><i class="fab fa-linkedin"></i>linkedin.com/in/prithvirajkeswani/</a>
+                <a href="tel:+16473829911"><i class="fa fa-phone"></i> 647-382-9911</a>
+                <a href="mailto:prithvirajkeswani@gmail.com"><i class="fa fa-envelope"></i> prithvirajkeswani@gmail.com</a>
+                <a href="https://github.com/6pro"><i class="fab fa-github"></i> github.com/6pro</a>
+                <a href="https://linkedin.com/in/prithvirajkeswani/"><i class="fab fa-linkedin"></i> linkedin.com/in/prithvirajkeswani/</a>
             </div>
         </header>
         <section>
@@ -141,7 +168,7 @@
             <h2>Technical Skills</h2>
             <ul>
                 <li>Programming Languages: Python, C, C++, Java, Go, SQL, Rust, MATLAB, HTML5, CSS, PHP, Dart, Racket, Scala</li>
-                <li>Tools & Technologies: Flask, Flutter, Puppeteer, Git, WordPress, Node.js, React, Google Cloud Platform, Grafana, Postman, FPGA</li>
+                <li>Tools & Technologies: Flask, Flutter, Puppeteer, Git, WordPress, Node.js,
             </ul>
         </section>
     </div>
