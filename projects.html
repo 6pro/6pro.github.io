@@ -93,12 +93,11 @@
 
         .projects {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 20px;
         }
 
         .project {
-            flex: 1 1 calc(33% - 20px);
             background-color: var(--container-bg-color);
             padding: 20px;
             border-radius: 8px;
@@ -115,6 +114,18 @@
         .project h3 {
             color: var(--accent-color);
             margin-bottom: 10px;
+            font-size: 1.5em;
+            position: relative;
+        }
+
+        .project h3::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--highlight-color);
         }
 
         a {
@@ -146,6 +157,29 @@
             padding: 2px 4px;
             border-radius: 4px;
         }
+
+        .project p {
+            margin: 10px 0;
+        }
+
+        .project ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .project ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--highlight-color);
+            font-size: 1.2em;
+        }
     </style>
 </head>
 
@@ -159,19 +193,44 @@
             <h2>Projects</h2>
             <div class="project">
                 <h3>Mega Drive Clone</h3>
-                <p>Developed a file repository application that allows users to upload, view, and delete files using Flask API endpoints. Built using Python, Flask, SQLite, Bootstrap, and Docker.</p>
+                <ul>
+                    <li>Developed a file repository application that allows users to upload, view, and delete files using <b>Flask API endpoints</b>.</li>
+                    <li>Built using <b>Python</b>, <b>Flask</b>, <b>SQLite</b>, <b>Bootstrap</b>, and <b>Docker</b>.</li>
+                </ul>
             </div>
             <div class="project">
                 <h3>Line Queuing App</h3>
-                <p>Designed and developed a queueing application to increase the efficiency and convenience of lineups for businesses. Built using React and Go, and integrated with Google Cloud SQL and the MessageBird API to send real-time text message updates to users about their position in line.</p>
+                <ul>
+                    <li>Designed and developed a queueing application to increase the efficiency and convenience of lineups for businesses.</li>
+                    <li>Built using <b>React</b> and <b>Go</b>, and integrated with <b>Google Cloud SQL</b> and the <b>MessageBird API</b> to send real-time text message updates to users about their position in line.</li>
+                </ul>
             </div>
             <div class="project">
                 <h3>Air Quality Control System</h3>
-                <p>This project is based on air quality measurement, which has become crucial during the pandemic. As Covid-19 is airborne, it is beneficial to know the air quality around us. The main purpose is to determine air quality and temperature in the surrounding area. Unlike similar projects online, this project combines temperature, pressure, air dust, and gas measurements. <a href="https://www.youtube.com/watch?v=YourVideoID1" target="_blank">Watch Demo</a></p>
+                <ul>
+                    <li>This project is based on air quality measurement, which has become crucial during the pandemic. As Covid-19 is airborne, it is beneficial to know the air quality around us.</li>
+                    <li>The main purpose is to determine air quality and temperature in the surrounding area.</li>
+                    <li>Unlike similar projects online, this project combines temperature, pressure, air dust, and gas measurements.</li>
+                    <li><a href="https://www.youtube.com/watch?v=YourVideoID1" target="_blank">Watch Demo</a></li>
+                </ul>
             </div>
             <div class="project">
                 <h3>Smart Shoppers</h3>
-                <p>Developed a shopping app using the Model-View-Controller (MVC) design pattern to enhance project organization and modularity. Designed and implemented six controller classes (CartController, CategoryController, DBController, UserController, StoreController) to manage different aspects of the application. Constructed the model layer with classes for Admin, Category, Item, Store, and User to define the data structure. Created a comprehensive view layer with tables and user interface components for a seamless user experience. Applied the MVC pattern based on the observer pattern to enable automatic updates in the view upon data modifications. Developed multiple helper methods to reduce code repetition and enhance code reusability. Implemented a Database Controller to manage CSV and storage operations efficiently. Integrated the shopping cart functionality with all relevant components, allowing users to add, modify, and delete items in their cart. Corrected UML and project documentation to reflect the relational dependencies between components accurately. Introduced a searchable interface to improve the search functionality within the application. Ensured a clear separation of user interface and logic, adhering to best practices in software design. Addressed and resolved design flaws identified in the midterm project, leading to a more robust and efficient application. <a href="https://www.youtube.com/watch?v=ziWxiFPhIi0" target="_blank">Watch Demo</a></p>
+                <ul>
+                    <li>Developed a shopping app using the <b>Model-View-Controller (MVC)</b> design pattern to enhance project organization and modularity.</li>
+                    <li>Designed and implemented six controller classes (<b>CartController</b>, <b>CategoryController</b>, <b>DBController</b>, <b>UserController</b>, <b>StoreController</b>) to manage different aspects of the application.</li>
+                    <li>Constructed the model layer with classes for <b>Admin</b>, <b>Category</b>, <b>Item</b>, <b>Store</b>, and <b>User</b> to define the data structure.</li>
+                    <li>Created a comprehensive view layer with tables and user interface components for a seamless user experience.</li>
+                    <li>Applied the MVC pattern based on the observer pattern to enable automatic updates in the view upon data modifications.</li>
+                    <li>Developed multiple helper methods to reduce code repetition and enhance code reusability.</li>
+                    <li>Implemented a Database Controller to manage CSV and storage operations efficiently.</li>
+                    <li>Integrated the shopping cart functionality with all relevant components, allowing users to add, modify, and delete items in their cart.</li>
+                    <li>Corrected UML and project documentation to reflect the relational dependencies between components accurately.</li>
+                    <li>Introduced a searchable interface to improve the search functionality within the application.</li>
+                    <li>Ensured a clear separation of user interface and logic, adhering to best practices in software design.</li>
+                    <li>Addressed and resolved design flaws identified in the midterm project, leading to a more robust and efficient application.</li>
+                    <li><a href="https://www.youtube.com/watch?v=ziWxiFPhIi0" target="_blank">Watch Demo</a></li>
+                </ul>
             </div>
         </section>
     </div>
