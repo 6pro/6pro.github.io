@@ -307,3 +307,64 @@
 </body>
 
 </html>
+
+
+/* Add your existing CSS above this point */
+
+.menu {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--container-bg-color);
+    padding: 20px;
+    border-radius: 8px 0 0 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    width: 250px;
+    max-width: 100%;
+    transform: translateX(100%);
+    visibility: hidden;
+}
+
+.menu a {
+    display: block;
+    color: var(--link-color);
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: var(--hover-color);
+}
+
+.menu-icon {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--container-bg-color);
+    color: var(--text-color);
+    padding: 20px;
+    border-radius: 8px 0 0 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-icon:hover {
+    background-color: var(--hover-color);
+    color: var(--bg-color);
+}
+
+.menu-icon i {
+    font-size: 1.5em;
+}
+
+.menu:hover,
+.menu-icon:hover + .menu {
+    transform: translateX(0);
+    visibility: visible;
+}
