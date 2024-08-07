@@ -17,6 +17,8 @@
             --link-color: #9cdcfe;
             --hover-color: #569cd6;
             --border-color: #333;
+            --accent-color: #ff6347;
+            --highlight-color: #ffd700;
         }
 
         .light-theme {
@@ -27,6 +29,8 @@
             --link-color: #0066cc;
             --hover-color: #003366;
             --border-color: #ddd;
+            --accent-color: #ff4500;
+            --highlight-color: #ffa500;
         }
 
         body {
@@ -62,7 +66,6 @@
             font-size: 3em;
             color: var(--header-color);
             font-family: 'Montserrat', sans-serif;
-            text-align: center;
         }
 
         .theme-toggle {
@@ -73,11 +76,19 @@
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s ease, color 0.3s ease;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .theme-toggle:hover {
             background-color: var(--hover-color);
             color: var(--bg-color);
+        }
+
+        .theme-toggle i {
+            font-size: 1.2em;
         }
 
         .projects {
@@ -92,11 +103,18 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
         }
 
         .project:hover {
             transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .project h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
         }
 
         a {
@@ -133,8 +151,8 @@
 
 <body>
     <header>
+        <button class="theme-toggle" onclick="toggleTheme()"><i class="fa fa-moon"></i> Trigger Light</button>
         <h1>PRITHVIRAJ KESWANI</h1>
-        <button class="theme-toggle" onclick="toggleTheme()">Color</button>
     </header>
     <div class="container fade-in">
         <section class="projects">
@@ -153,15 +171,24 @@
             </div>
             <div class="project">
                 <h3>Smart Shoppers</h3>
-                <p>Developed a shopping app using the Model-View-Controller (MVC) design pattern to enhance project organization and modularity.
-
-                Designed and implemented six controller classes (CartController, CategoryController, DBController, UserController, StoreController) to manage different aspects of the application. Constructed the model layer with classes for Admin, Category, Item, Store, and User to define the data structure. Created a comprehensive view layer with tables and user interface components for a seamless user experience. Applied the MVC pattern based on the observer pattern to enable automatic updates in the view upon data modifications. Developed multiple helper methods to reduce code repetition and enhance code reusability. Implemented a Database Controller to manage CSV and storage operations efficiently. Integrated the shopping cart functionality with all relevant components, allowing users to add, modify, and delete items in their cart. Corrected UML and project documentation to reflect the relational dependencies between components accurately. Introduced a searchable interface to improve the search functionality within the application. Ensured a clear separation of user interface and logic, adhering to best practices in software design. Addressed and resolved design flaws identified in the midterm project, leading to a more robust and efficient application. <a href="https://www.youtube.com/watch?v=ziWxiFPhIi0" target="_blank">Watch Demo</a></p>
+                <p>Developed a shopping app using the Model-View-Controller (MVC) design pattern to enhance project organization and modularity. Designed and implemented six controller classes (CartController, CategoryController, DBController, UserController, StoreController) to manage different aspects of the application. Constructed the model layer with classes for Admin, Category, Item, Store, and User to define the data structure. Created a comprehensive view layer with tables and user interface components for a seamless user experience. Applied the MVC pattern based on the observer pattern to enable automatic updates in the view upon data modifications. Developed multiple helper methods to reduce code repetition and enhance code reusability. Implemented a Database Controller to manage CSV and storage operations efficiently. Integrated the shopping cart functionality with all relevant components, allowing users to add, modify, and delete items in their cart. Corrected UML and project documentation to reflect the relational dependencies between components accurately. Introduced a searchable interface to improve the search functionality within the application. Ensured a clear separation of user interface and logic, adhering to best practices in software design. Addressed and resolved design flaws identified in the midterm project, leading to a more robust and efficient application. <a href="https://www.youtube.com/watch?v=ziWxiFPhIi0" target="_blank">Watch Demo</a></p>
             </div>
         </section>
     </div>
     <script>
         function toggleTheme() {
             document.body.classList.toggle('light-theme');
+            const themeToggle = document.querySelector('.theme-toggle i');
+            const themeText = document.querySelector('.theme-toggle');
+            if (document.body.classList.contains('light-theme')) {
+                themeToggle.classList.remove('fa-moon');
+                themeToggle.classList.add('fa-sun');
+                themeText.innerHTML = '<i class="fa fa-sun"></i> Trigger Dark';
+            } else {
+                themeToggle.classList.remove('fa-sun');
+                themeToggle.classList.add('fa-moon');
+                themeText.innerHTML = '<i class="fa fa-moon"></i> Trigger Light';
+            }
         }
     </script>
 </body>
