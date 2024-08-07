@@ -40,10 +40,11 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             transition: all 0.5s ease;
+            display: flex;
         }
 
         .container {
-            width: 90%;
+            width: 70%;
             max-width: 1200px;
             margin: 50px auto;
             padding: 20px;
@@ -89,24 +90,6 @@
 
         .theme-toggle i {
             font-size: 1.2em;
-        }
-
-        .projects-button {
-            background-color: var(--container-bg-color);
-            color: var(--text-color);
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .projects-button:hover {
-            background-color: var(--hover-color);
-            color: var(--bg-color);
         }
 
         .contact-info {
@@ -222,16 +205,43 @@
             padding: 2px 4px;
             border-radius: 4px;
         }
+
+        .menu {
+            width: 20%;
+            background-color: var(--container-bg-color);
+            padding: 20px;
+            margin: 50px 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s ease;
+        }
+
+        .menu a {
+            display: block;
+            color: var(--link-color);
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: var(--hover-color);
+        }
     </style>
 </head>
 
 <body>
-    <header>
-        <button class="theme-toggle" onclick="toggleTheme()"><i class="fa fa-moon"></i> Trigger Light</button>
-        <h1>PRITHVIRAJ KESWANI</h1>
-        <button class="projects-button" onclick="window.location.href='projects.html'">Projects</button>
-    </header>
+    <div class="menu">
+        <a href="#work-experience">Work Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#volunteer">Volunteer</a>
+    </div>
     <div class="container fade-in">
+        <header>
+            <button class="theme-toggle" onclick="toggleTheme()"><i class="fa fa-moon"></i> Trigger Light</button>
+            <h1>PRITHVIRAJ KESWANI</h1>
+        </header>
         <section class="contact-info">
             <a href="tel:+16473829911"><i class="fa fa-phone"></i> 647-382-9911</a>
             <a href="mailto:prithvirajkeswani@gmail.com"><i class="fa fa-envelope"></i> prithvirajkeswani@gmail.com</a>
@@ -251,8 +261,8 @@
                 <img src="your-image-url-3.jpg" alt="Abstract Photography">
             </div>
         </section>
-        <section class="skills">
-            <h2>Skills</h2>
+        <section id="work-experience" class="skills">
+            <h2>Work Experience</h2>
             <div class="skill">
                 <h3>Programming Languages</h3>
                 <p>Python, C, C++, Java, Go, SQL, Rust, MATLAB, HTML5, CSS, PHP, Dart, Racket, Scala</p>
@@ -260,6 +270,20 @@
             <div class="skill">
                 <h3>Tools & Technologies</h3>
                 <p>Flask, Flutter, Puppeteer, Git, WordPress, Node.js</p>
+            </div>
+        </section>
+        <section id="projects" class="skills">
+            <h2>Projects</h2>
+            <div class="skill">
+                <h3>Personal Project</h3>
+                <p>Building a web application using Flask and React that allows users to create and share music playlists.</p>
+            </div>
+        </section>
+        <section id="volunteer" class="skills">
+            <h2>Volunteer</h2>
+            <div class="skill">
+                <h3>Project Mentoring Program</h3>
+                <p>Designed and delivered lessons on 3D modelling and computational thinking using Arduino and MicroPython at K2I Academy.</p>
             </div>
         </section>
     </div>
