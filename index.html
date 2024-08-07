@@ -91,24 +91,6 @@
             font-size: 1.2em;
         }
 
-        .projects-button {
-            background-color: var(--container-bg-color);
-            color: var(--text-color);
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .projects-button:hover {
-            background-color: var(--hover-color);
-            color: var(--bg-color);
-        }
-
         .contact-info {
             text-align: center;
             margin-bottom: 40px;
@@ -222,6 +204,46 @@
             padding: 2px 4px;
             border-radius: 4px;
         }
+
+        .side-menu {
+            position: fixed;
+            top: 50%;
+            right: -150px;
+            transform: translateY(-50%);
+            width: 200px;
+            transition: right 0.3s ease;
+        }
+
+        .side-menu:hover {
+            right: 0;
+        }
+
+        .side-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: var(--container-bg-color);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .side-menu ul li {
+            margin: 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .side-menu ul li a {
+            display: block;
+            padding: 15px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .side-menu ul li a:hover {
+            background-color: var(--hover-color);
+            color: var(--bg-color);
+        }
     </style>
 </head>
 
@@ -229,7 +251,6 @@
     <header>
         <button class="theme-toggle" onclick="toggleTheme()"><i class="fa fa-moon"></i> Trigger Light</button>
         <h1>PRITHVIRAJ KESWANI</h1>
-        <button class="projects-button" onclick="window.location.href='projects.html'">Projects</button>
     </header>
     <div class="container fade-in">
         <section class="contact-info">
@@ -262,6 +283,15 @@
                 <p>Flask, Flutter, Puppeteer, Git, WordPress, Node.js</p>
             </div>
         </section>
+    </div>
+
+    <div class="side-menu">
+        <ul>
+            <li><a href="https://6pro.github.io/workexperience">Work Experience</a></li>
+            <li><a href="https://6pro.github.io/projects">Projects</a></li>
+            <li><a href="https://6pro.github.io/volunteer">Volunteer</a></li>
+            <li><a href="https://6pro.github.io/photography">Photography</a></li>
+        </ul>
     </div>
 
     <script>
