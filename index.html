@@ -17,8 +17,6 @@
             --link-color: #9cdcfe;
             --hover-color: #569cd6;
             --border-color: #333;
-            --accent-color: #ff6347;
-            --highlight-color: #ffd700;
         }
 
         .light-theme {
@@ -29,8 +27,6 @@
             --link-color: #0066cc;
             --hover-color: #003366;
             --border-color: #ddd;
-            --accent-color: #ff4500;
-            --highlight-color: #ffa500;
         }
 
         body {
@@ -40,11 +36,10 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             transition: all 0.5s ease;
-            display: flex;
         }
 
         .container {
-            width: 70%;
+            width: 90%;
             max-width: 1200px;
             margin: 50px auto;
             padding: 20px;
@@ -55,11 +50,10 @@
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            text-align: center;
             margin-bottom: 40px;
             animation: fadeIn 2s ease-in-out;
+            position: relative;
         }
 
         header h1 {
@@ -77,19 +71,14 @@
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s ease, color 0.3s ease;
-            margin-right: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
 
         .theme-toggle:hover {
             background-color: var(--hover-color);
             color: var(--bg-color);
-        }
-
-        .theme-toggle i {
-            font-size: 1.2em;
         }
 
         .contact-info {
@@ -119,20 +108,7 @@
         section h2 {
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 5px;
-            color: var(--highlight-color);
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        section h2::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--accent-color);
+            color: var(--link-color);
         }
 
         .about p {
@@ -151,12 +127,11 @@
             height: 100px;
             object-fit: cover;
             border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .hobbies img:hover {
             transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
         }
 
         .skills {
@@ -172,18 +147,22 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
+            transition: transform 0.3s ease;
+            text-align: center;
         }
 
         .skill:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
         }
 
-        .skill h3 {
-            color: var(--accent-color);
-            margin-bottom: 10px;
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--hover-color);
         }
 
         .fade-in {
@@ -206,42 +185,33 @@
             border-radius: 4px;
         }
 
-        .menu {
-            width: 20%;
+        .projects-button {
             background-color: var(--container-bg-color);
-            padding: 20px;
-            margin: 50px 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            transition: all 0.5s ease;
+            color: var(--text-color);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            position: absolute;
+            top: 20px;
+            right: 150px;
         }
 
-        .menu a {
-            display: block;
-            color: var(--link-color);
-            text-decoration: none;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-            transition: color 0.3s ease;
-        }
-
-        .menu a:hover {
-            color: var(--hover-color);
+        .projects-button:hover {
+            background-color: var(--hover-color);
+            color: var(--bg-color);
         }
     </style>
 </head>
 
 <body>
-    <div class="menu">
-        <a href="#work-experience">Work Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#volunteer">Volunteer</a>
-    </div>
+    <header>
+        <h1>PRITHVIRAJ KESWANI</h1>
+        <button class="theme-toggle" onclick="toggleTheme()"><i class="fa fa-moon"></i></button>
+        <button class="projects-button" onclick="window.location.href='projects.html'">Projects</button>
+    </header>
     <div class="container fade-in">
-        <header>
-            <button class="theme-toggle" onclick="toggleTheme()"><i class="fa fa-moon"></i> Trigger Light</button>
-            <h1>PRITHVIRAJ KESWANI</h1>
-        </header>
         <section class="contact-info">
             <a href="tel:+16473829911"><i class="fa fa-phone"></i> 647-382-9911</a>
             <a href="mailto:prithvirajkeswani@gmail.com"><i class="fa fa-envelope"></i> prithvirajkeswani@gmail.com</a>
@@ -261,8 +231,8 @@
                 <img src="your-image-url-3.jpg" alt="Abstract Photography">
             </div>
         </section>
-        <section id="work-experience" class="skills">
-            <h2>Work Experience</h2>
+        <section class="skills">
+            <h2>Skills</h2>
             <div class="skill">
                 <h3>Programming Languages</h3>
                 <p>Python, C, C++, Java, Go, SQL, Rust, MATLAB, HTML5, CSS, PHP, Dart, Racket, Scala</p>
@@ -272,99 +242,16 @@
                 <p>Flask, Flutter, Puppeteer, Git, WordPress, Node.js</p>
             </div>
         </section>
-        <section id="projects" class="skills">
-            <h2>Projects</h2>
-            <div class="skill">
-                <h3>Personal Project</h3>
-                <p>Building a web application using Flask and React that allows users to create and share music playlists.</p>
-            </div>
-        </section>
-        <section id="volunteer" class="skills">
-            <h2>Volunteer</h2>
-            <div class="skill">
-                <h3>Project Mentoring Program</h3>
-                <p>Designed and delivered lessons on 3D modelling and computational thinking using Arduino and MicroPython at K2I Academy.</p>
-            </div>
-        </section>
     </div>
 
     <script>
         function toggleTheme() {
             document.body.classList.toggle('light-theme');
-            const themeToggle = document.querySelector('.theme-toggle i');
-            const themeText = document.querySelector('.theme-toggle');
-            if (document.body.classList.contains('light-theme')) {
-                themeToggle.classList.remove('fa-moon');
-                themeToggle.classList.add('fa-sun');
-                themeText.innerHTML = '<i class="fa fa-sun"></i> Trigger Dark';
-            } else {
-                themeToggle.classList.remove('fa-sun');
-                themeToggle.classList.add('fa-moon');
-                themeText.innerHTML = '<i class="fa fa-moon"></i> Trigger Light';
-            }
+            const themeIcon = document.querySelector('.theme-toggle i');
+            themeIcon.classList.toggle('fa-moon');
+            themeIcon.classList.toggle('fa-sun');
         }
     </script>
 </body>
 
 </html>
-
-
-/* Add your existing CSS above this point */
-
-.menu {
-    position: fixed;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--container-bg-color);
-    padding: 20px;
-    border-radius: 8px 0 0 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
-    width: 250px;
-    max-width: 100%;
-    transform: translateX(100%);
-    visibility: hidden;
-}
-
-.menu a {
-    display: block;
-    color: var(--link-color);
-    text-decoration: none;
-    margin-bottom: 10px;
-    font-size: 1.2em;
-    transition: color 0.3s ease;
-}
-
-.menu a:hover {
-    color: var(--hover-color);
-}
-
-.menu-icon {
-    position: fixed;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--container-bg-color);
-    color: var(--text-color);
-    padding: 20px;
-    border-radius: 8px 0 0 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.menu-icon:hover {
-    background-color: var(--hover-color);
-    color: var(--bg-color);
-}
-
-.menu-icon i {
-    font-size: 1.5em;
-}
-
-.menu:hover,
-.menu-icon:hover + .menu {
-    transform: translateX(0);
-    visibility: visible;
-}
