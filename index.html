@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prithviraj Keswani's Portfolio</title>
+    <title>Prithviraj Keswani's Work Experience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMt23cez/3paNdF+Z9FrM2i3qZ1OXFjTI9U5oy9" crossorigin="anonymous">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Montserrat:wght@700&display=swap');
@@ -17,6 +17,8 @@
             --link-color: #9cdcfe;
             --hover-color: #569cd6;
             --border-color: #333;
+            --accent-color: #ff6347;
+            --highlight-color: #ffd700;
         }
 
         .light-theme {
@@ -27,6 +29,8 @@
             --link-color: #0066cc;
             --hover-color: #003366;
             --border-color: #ddd;
+            --accent-color: #ff4500;
+            --highlight-color: #ffa500;
         }
 
         body {
@@ -50,10 +54,11 @@
         }
 
         header {
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 40px;
             animation: fadeIn 2s ease-in-out;
-            position: relative;
         }
 
         header h1 {
@@ -61,9 +66,15 @@
             font-size: 3em;
             color: var(--header-color);
             font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            flex-grow: 1;
         }
 
-        .theme-toggle {
+        .menu {
+            position: relative;
+        }
+
+        .menu-toggle {
             background-color: var(--container-bg-color);
             color: var(--text-color);
             border: none;
@@ -71,88 +82,86 @@
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s ease, color 0.3s ease;
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .theme-toggle:hover {
+        .menu-toggle:hover {
             background-color: var(--hover-color);
             color: var(--bg-color);
         }
 
-        .contact-info {
-            text-align: center;
-            margin-bottom: 40px;
+        .menu-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 40px;
+            background-color: var(--container-bg-color);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            text-align: right;
         }
 
-        .contact-info a {
-            color: var(--link-color);
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s ease;
+        .menu:hover .menu-content {
+            display: block;
         }
 
-        .contact-info a:hover {
-            color: var(--hover-color);
-        }
-
-        .contact-info i {
-            margin-right: 8px;
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        section h2 {
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 5px;
-            color: var(--link-color);
-        }
-
-        .about p {
-            margin: 10px 0;
-        }
-
-        .hobbies {
+        .menu-content button {
+            background-color: var(--container-bg-color);
+            color: var(--text-color);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
             gap: 10px;
-            justify-content: center;
+            margin-top: 5px;
         }
 
-        .hobbies img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
+        .menu-content button:hover {
+            background-color: var(--hover-color);
+            color: var(--bg-color);
         }
 
-        .hobbies img:hover {
-            transform: scale(1.1);
-        }
-
-        .skills {
+        .work-experience {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 20px;
-            justify-content: center;
         }
 
-        .skill {
-            flex: 1 1 calc(33% - 20px);
+        .experience {
             background-color: var(--container-bg-color);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
         }
 
-        .skill:hover {
+        .experience:hover {
             transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .experience h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            position: relative;
+        }
+
+        .experience h3::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--highlight-color);
         }
 
         a {
@@ -185,23 +194,27 @@
             border-radius: 4px;
         }
 
-        .custom-button {
-            background-color: var(--container-bg-color);
-            color: var(--text-color);
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            margin-left: 10px;
+        .experience p {
+            margin: 10px 0;
         }
 
-        .custom-button:hover {
-            background-color: var(--hover-color);
-            color: var(--bg-color);
+        .experience ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .experience ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--highlight-color);
+            font-size: 1.2em;
         }
     </style>
 </head>
@@ -209,51 +222,80 @@
 <body>
     <header>
         <h1>PRITHVIRAJ KESWANI</h1>
-        <button class="theme-toggle" onclick="toggleTheme()"><i class="fa fa-moon"></i></button>
-        <button class="custom-button" onclick="window.location.href='https://6pro.github.io/workexperience'">Work Experience</button>
-        <button class="custom-button" onclick="window.location.href='https://6pro.github.io/projects'">Projects</button>
-        <button class="custom-button" onclick="window.location.href='https://6pro.github.io/volunteer'">Volunteer</button>
-        <button class="custom-button" onclick="window.location.href='YOUR_PHOTOGRAPHY_LINK_HERE'">Photography</button>
+        <div class="menu">
+            <button class="menu-toggle"><i class="fa fa-bars"></i></button>
+            <div class="menu-content">
+                <button class="theme-toggle" onclick="toggleTheme()"><i class="fa fa-moon"></i> Trigger Light</button>
+                <button class="home-button" onclick="window.location.href='https://6pro.github.io'">Home</button>
+            </div>
+        </div>
     </header>
     <div class="container fade-in">
-        <section class="contact-info">
-            <a href="tel:+16473829911"><i class="fa fa-phone"></i> 647-382-9911</a>
-            <a href="mailto:prithvirajkeswani@gmail.com"><i class="fa fa-envelope"></i> prithvirajkeswani@gmail.com</a>
-            <a href="https://github.com/6pro"><i class="fab fa-github"></i> github.com/6pro</a>
-            <a href="https://linkedin.com/in/prithvirajkeswani/"><i class="fab fa-linkedin"></i> linkedin.com/in/prithvirajkeswani/</a>
-        </section>
-        <section class="about">
-            <h2>About Me</h2>
-            <p>🔭 I’m currently working on a personal project where I'm building a web application using Flask and React that allows users to create and share music playlists. I'm also improving my data analysis and visualization skills using Python and SQL.</p>
-            <p>🤝 I’m looking for opportunities to learn more about machine learning and artificial intelligence. I'm also seeking mentorship and advice on how to develop my career as a computer engineer.</p>
-            <p>🌱 I’m currently learning how to use TensorFlow and Keras for building neural networks. I'm also learning more about cloud computing and how to deploy web applications using services like Google Cloud Platform and Amazon Web Services.</p>
-            <p>💬 Ask me about my experience working on the project mentoring program at K2I Academy, where I designed and delivered lessons on 3D modelling and computational thinking using Arduino and MicroPython. I can also discuss my experience as a Front End Developer where I worked on improving UI/UX using Figma, WordPress, HTML5, and CSS.</p>
-            <p>⚡ Fun fact: Outside of my academic pursuits, I'm a big fan of playing and watching basketball. I'm also an amateur photographer and enjoy exploring new places to take photos.</p>
-            <div class="hobbies">
-                <img src="your-image-url-1.jpg" alt="MLS Photography">
-                <img src="your-image-url-2.jpg" alt="Arduino Tinkering">
-                <img src="your-image-url-3.jpg" alt="Abstract Photography">
+        <section class="work-experience">
+            <h2>Work Experience</h2>
+            <div class="experience">
+                <h3>SARIT BY ELVY LTD</h3>
+                <p><b>Software Engineering Intern</b> | July 2023-Present</p>
+                <ul>
+                    <li>Spearheaded the development of a state-of-the-art computer vision system for SARIT vehicles.</li>
+                    <li>Architected and engineered an advanced computer vision system for SARIT vehicles, leveraging cutting-edge technologies like <b>DepthAI</b>.</li>
+                    <li>Orchestrated the successful integration of <b>NVIDIA Jetson Nano</b> and <b>Oak-DLITE cameras</b> into the SARIT vehicle's hardware infrastructure, optimizing performance and real-time data processing.</li>
+                    <li>Pioneered the development and deployment of a specialized camera add-on, enhancing SARIT's driver awareness and safety features.</li>
+                    <li>Played a pivotal role in reducing traffic congestion and enhancing the overall efficiency of the SARIT vehicle.</li>
+                </ul>
             </div>
-        </section>
-        <section class="skills">
-            <h2>Skills</h2>
-            <div class="skill">
-                <h3>Programming Languages</h3>
-                <p>Python, C, C++, Java, Go, SQL, Rust, MATLAB, HTML5, CSS, PHP, Dart, Racket, Scala</p>
+            <div class="experience">
+                <h3>KINDERGARTEN TO INDUSTRY (K2I) ACADEMY, LASSONDE SCHOOL OF ENGINEERING</h3>
+                <p><b>Project Mentor Lead</b> | May-Sept 2021</p>
+                <ul>
+                    <li>Organized a mentorship and tutoring program that encourages youth to pursue a career in STEM.</li>
+                    <li>Organized a Covid-19 Research Project where the importance of Air Quality in Ontario was discussed, the project was sponsored by <b>GM</b> and <b>KPM Power</b>.</li>
+                    <li>Created lesson plans to teach high school students design methods, research skills, and technical skills related to 3D Modeling, Computational Thinking using <b>Arduino</b> and <b>MicroPython</b>.</li>
+                </ul>
             </div>
-            <div class="skill">
-                <h3>Tools & Technologies</h3>
-                <p>Flask, Flutter, Puppeteer, Git, WordPress, Node.js</p>
+            <div class="experience">
+                <h3>LASSONDE SCHOOL OF ENGINEERING, YORK UNIVERSITY</h3>
+                <p><b>Project Mentor Lead - Summer Student - Embedded Systems</b> | Apr 2021 - Sep 2021</p>
+                <ul>
+                    <li>Teaching Assistant for Intro to Programming which was taught to all youth in the program.</li>
+                    <li>Organized a mentorship and tutoring program that encourages youth to pursue a career in STEM.</li>
+                    <li>Organized a Covid-19 Research Project where the importance of Air Quality in Close Spaces was discussed, the project was sponsored by <b>GM</b> and <b>KPM Power</b>. <a href="https://www.youtube.com/watch?v=0rCWpTzsXnU" target="_blank">Watch Showcase</a></li>
+                    <li>Created lesson plans to teach high school students design methods, research skills, and technical skills related to 3D Modeling, Computational Thinking using <b>Arduino</b> and <b>MicroPython</b>.</li>
+                </ul>
+            </div>
+            <div class="experience">
+                <h3>POWER ELECTRONICS LAB, LASSONDE SCHOOL OF ENGINEERING</h3>
+                <p><b>Undergraduate Research Student</b> | Oct 2020 - Aug 2021</p>
+                <ul>
+                    <li>Worked with solar panels and buck converters to power small-scale solar power models and used backtracking algorithms in C [bruteforcing] to make them more efficient. <a href="https://docs.google.com/presentation/d/1X5EqZ39p_jkPy9vq5QHjblmadCIhC70aLMifrtdaSKY/edit#slide=id.p1" target="_blank">View Presentation</a></li>
+                </ul>
+            </div>
+            <div class="experience">
+                <h3>DEPARTMENT OF MECHANICAL ENGINEERING, LASSONDE SCHOOL OF ENGINEERING</h3>
+                <p><b>Website Developer</b> | June-November 2019</p>
+                <ul>
+                    <li>Refactored and redesigned web pages, reducing latency issues by 60%.</li>
+                    <li>Redesigned front-end UI/UX for the website using <b>Figma</b>, <b>WordPress</b>, <b>HTML5</b>, and <b>CSS</b>.</li>
+                    <li>Applied Agile Project Management Methodologies and managed tasks using <b>Jira</b>.</li>
+                    <li>Increased webpage visibility and promotion, quadrupling the number of visits, writing comprehensive technical descriptions, and highlighting key features to attract online customers.</li>
+                </ul>
             </div>
         </section>
     </div>
-
     <script>
         function toggleTheme() {
             document.body.classList.toggle('light-theme');
-            const themeIcon = document.querySelector('.theme-toggle i');
-            themeIcon.classList.toggle('fa-moon');
-            themeIcon.classList.toggle('fa-sun');
+            const themeToggle = document.querySelector('.theme-toggle i');
+            const themeText = document.querySelector('.theme-toggle');
+            if (document.body.classList.contains('light-theme')) {
+                themeToggle.classList.remove('fa-moon');
+                themeToggle.classList.add('fa-sun');
+                themeText.innerHTML = '<i class="fa fa-sun"></i> Trigger Dark';
+            } else {
+                themeToggle.classList.remove('fa-sun');
+                themeToggle.classList.add('fa-moon');
+                themeText.innerHTML = '<i class="fa fa-moon"></i> Trigger Light';
+            }
         }
     </script>
 </body>
