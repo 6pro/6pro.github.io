@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMt23cez/3paNdF+Z9FrM2i3qZ1OXFjTI9U5oy9" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Montserrat:wght@700&display=swap');
+
+        :root {
+            --bg-color: #1e1e1e;
+            --container-bg-color: #252526;
+            --text-color: #dcdcdc;
+            --header-color: #569cd6;
+            --link-color: #9cdcfe;
+            --hover-color: #569cd6;
+            --border-color: #333;
+            --accent-color: #ff6347;
+            --highlight-color: #ffd700;
+        }
+
+        .light-theme {
+            --bg-color: #f0f0f0;
+            --container-bg-color: #ffffff;
+            --text-color: #333;
+            --header-color: #007acc;
+            --link-color: #0066cc;
+            --hover-color: #003366;
+            --border-color: #ddd;
+            --accent-color: #ff4500;
+            --highlight-color: #ffa500;
+        }
+
+        body {
+            font-family: 'Fira Code', monospace;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.5s ease;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: var(--container-bg-color);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: var(--header-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            color: var(--link-color);
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--hover-color);
+        }
+
+        .theme-toggle {
+            background-color: var(--container-bg-color);
+            color: var(--text-color);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--hover-color);
+            color: var(--bg-color);
+        }
+
+        .theme-toggle i {
+            font-size: 1.2em;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: var(--container-bg-color);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s ease;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            color: var(--highlight-color);
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        section h2::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .about p, .work p, .volunteer p, .photography p {
+            margin: 10px 0;
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Landing Page</h1>
+        <nav class="nav-menu">
+            <a href="#work">Work Experience</a>
+            <a href="#about">About Me</a>
+            <a href="#volunteer">Volunteer</a>
+            <a href="#photography">Photography</a>
+        </nav>
+        <button class="theme-toggle" onclick="toggleTheme()"><i class="fa fa-moon"></i> Trigger Light</button>
+    </header>
+
+    <div class="container fade-in">
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <p>This section can be used to provide a brief introduction about yourself.</p>
+        </section>
+
+        <section id="work" class="work">
+            <h2>Work Experience</h2>
+            <p>This section can include your work experiences and professional background.</p>
+        </section>
+
+        <section id="volunteer" class="volunteer">
+            <h2>Volunteer</h2>
+            <p>This section can highlight your volunteer work and community involvement.</p>
+        </section>
+
+        <section id="photography" class="photography">
+            <h2>Photography</h2>
+            <p>This section can showcase your photography portfolio or hobby.</p>
+        </section>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            const themeToggle = document.querySelector('.theme-toggle i');
+            const themeText = document.querySelector('.theme-toggle');
+            if (document.body.classList.contains('light-theme')) {
+                themeToggle.classList.remove('fa-moon');
+                themeToggle.classList.add('fa-sun');
+                themeText.innerHTML = '<i class="fa fa-sun"></i> Trigger Dark';
+            } else {
+                themeToggle.classList.remove('fa-sun');
+                themeToggle.classList.add('fa-moon');
+                themeText.innerHTML = '<i class="fa fa-moon"></i> Trigger Light';
+            }
+        }
+    </script>
+</body>
+
+</html>
